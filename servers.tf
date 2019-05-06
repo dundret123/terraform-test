@@ -1,27 +1,26 @@
 data "aws_ami" "ubuntu" {
-most_recent = true
+  most_recent = true
 
   filter {
-    name  = "name"
+    name   = "name"
     values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
-    }
+  }
 
   filter {
-    name = "virtualization-type"
+    name   = "virtualization-type"
     values = ["hvm"]
   }
 
-  owners = ["099720109477"]  # Canonical
+  owners = ["099720109477"] # Canonical
 }
 
 resource "aws_instance" "aws-server" {
-  ami = "${data.aws_ami.ubuntu.id}"
+  ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
 
   tags {
     Name = "test instance"
-   }
+  }
 
   subnet_id = "${aws_subnet.subnet2.id}"
 }
-
