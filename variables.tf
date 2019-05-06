@@ -13,3 +13,21 @@ variable subnet_names {
     subnet3 = "subnetthree"
   }
 }
+
+// input variables with no value
+variable new_value {
+}
+
+variable newmap {
+  type = "map"
+}
+
+// output variables
+
+output "first_output" {
+  value = "this is the value through execution"
+}
+
+output "aws_cidr_subnet1" {
+  value = "${aws_subnet.subnet1.cidr_block}"
+}
