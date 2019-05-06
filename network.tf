@@ -3,7 +3,7 @@ resource "aws_vpc" "environment-example" {
   enable_dns_hostnames = true
   enable_dns_support = true
   tags {
-    Name = "sharada-aws-vpc-test"
+    Name = "aws-vpc-test"
   }
 }
 
