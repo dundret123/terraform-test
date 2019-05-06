@@ -1,5 +1,5 @@
 resource "aws_vpc" "environment-example" {
-  cidr_block           = "172.23.0.0/24"
+  cidr_block           = "${var.aws_ip_cidr_range}"
   enable_dns_hostnames = true
   enable_dns_support   = true
 
@@ -21,7 +21,7 @@ resource "azurerm_virtual_network" "blue_virtual_network" {
   dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
   subnet {
-    name           = "subnet1"
+    name           = "${var.subnet_names["subnet1"]}"
     address_prefix = "10.0.1.0/24"
   }
 
